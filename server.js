@@ -17,6 +17,7 @@ app.get('/delayed', async (_, res) => {
 
     await new Promise((resolve) => {
         setTimeout(() => resolve(), SECONDS_DELAY);
+
     });
 
     res.send({ message: 'delayed response' });
