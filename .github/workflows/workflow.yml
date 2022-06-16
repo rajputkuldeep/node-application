@@ -21,13 +21,13 @@ jobs:
     steps:
        - uses: actions/checkout@v2
        - name: Build and push docker image
-          uses: docker/build-push-action@v1
-          with:
-              username: ${{ github.actor }}
-              password: ${{ secrets.GITHUB_TOKEN }}
-              registry: ${{ env.REGISTRY }}
-              repository: ${{ env.REPO }}
-              tag_with_ref: true   
+         uses: docker/build-push-action@v1
+         with:
+             username: ${{ github.actor }}
+             password: ${{ secrets.GITHUB_TOKEN }}
+             registry: ${{ env.REGISTRY }}
+             repository: ${{ env.REPO }}
+             tag_with_ref: true   
   deploy:
     needs: [push_to_registry]
     name: Deploy to ec2
